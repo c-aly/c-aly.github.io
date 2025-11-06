@@ -1,54 +1,123 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
   <title>Cyrus Aly | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Cache-bust your CSS if needed by bumping the v= number -->
+  <link rel="stylesheet" href="style.css?v=1" />
+  <meta name="description" content="Cyrus Aly — CS @ UMass Amherst | Full-stack Developer" />
 </head>
 <body>
-  <header>
-    <h1>Cyrus Aly</h1>
-    <p>Computer Science @ UMass Amherst | Full-Stack & Game Developer</p>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Top banner / hero -->
+  <header class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <h1 class="hero__title">Cyrus Aly</h1>
+        <p class="hero__tagline">Computer Science @ UMass Amherst · Full-Stack & Game Developer</p>
+        <p class="hero__sub">I build practical tools, delightful UIs, and performant systems.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">View Projects</a>
+          <a class="btn btn--ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>FivePG</h3>
-      <p>Full-stack e-commerce repricing automation app built with Django + React. Integrates Stripe, Supabase, and AWS.</p>
-      <a href="https://github.com/c-aly/FivePG" target="_blank">View on GitHub</a>
+  <main>
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Projects</h2>
+          <span class="pill">Built with love & caffeine</span>
+        </div>
+
+        <div class="grid">
+          <!-- Card 1 -->
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">FivePG</h3>
+              <p class="card__desc">
+                E-commerce repricing automation for eBay sellers. Django API + React dashboard,
+                Supabase auth, Stripe billing, and scheduled workers on AWS/Render.
+              </p>
+              <ul class="card__tech">
+                <li>Django</li><li>React</li><li>Stripe</li><li>Supabase</li>
+              </ul>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--sm btn--primary" target="_blank" href="https://github.com/c-aly/FivePG">GitHub</a>
+              <!-- <a class="btn btn--sm btn--ghost" target="_blank" href="https://fivepg.example.com">Live</a> -->
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">VirtualHands</h3>
+              <p class="card__desc">
+                Hand-tracking web app using MediaPipe + OpenCV + Three.js via Flask backend.
+                Won “Best Software Hack” at HackHer413.
+              </p>
+              <ul class="card__tech">
+                <li>MediaPipe</li><li>OpenCV</li><li>Flask</li><li>Three.js</li>
+              </ul>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--sm btn--primary" target="_blank" href="https://github.com/c-aly/VirtualHands">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">SDL2 Pong (Networked)</h3>
+              <p class="card__desc">
+                Classic Pong with a C/SDL2 client and a server that owns game state; clients handle input & rendering.
+              </p>
+              <ul class="card__tech">
+                <li>C</li><li>SDL2</li><li>UDP/TCP</li>
+              </ul>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--sm btn--primary" target="_blank" href="https://github.com/c-aly">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>About</h2>
+          <span class="pill">Who I am</span>
+        </div>
+        <p>
+          I’m a CS student focused on full-stack web and game dev. I like building data-driven
+          products end-to-end—from clean APIs and robust infra to accessible, responsive UIs.
+          Recently exploring price optimization, realtime dashboards, and engine-level rendering.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom banner / footer (same brand color) -->
+  <footer id="contact" class="footer">
+    <div class="container footer__inner">
+      <div>
+        <h2 class="footer__title">Let’s build something</h2>
+        <p class="footer__sub">Open to internships, collabs, and fun problems.</p>
+      </div>
+      <p class="footer__links">
+        <a href="mailto:cyrus@example.com">cyrus@example.com</a> ·
+        <a target="_blank" href="https://github.com/c-aly">GitHub</a> ·
+        <a target="_blank" href="https://www.linkedin.com/in/cyrusaly/">LinkedIn</a>
+        <!-- · <a target="_blank" href="/CyrusAly_Resume.pdf">Resume</a> -->
+      </p>
     </div>
-    <div class="project">
-      <h3>VirtualHands</h3>
-      <p>Hand-tracking web app using MediaPipe, OpenCV, Flask, and Three.js. Won “Best Software Hack” at HackHer413.</p>
-      <a href="https://github.com/c-aly/VirtualHands" target="_blank">View on GitHub</a>
-    </div>
-    <!-- Add more projects here -->
-  </section>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi! I’m a CS student passionate about web dev, machine learning, and building tools that solve real problems.
-       I love creating full-stack apps and experimenting with Unity and C.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:cyrus@example.com">Email</a> |
-      <a href="https://github.com/c-aly" target="_blank">GitHub</a> |
-      <a href="https://www.linkedin.com/in/cyrusaly/" target="_blank">LinkedIn</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2025 Cyrus Aly</p>
   </footer>
 </body>
 </html>

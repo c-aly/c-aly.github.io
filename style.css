@@ -1,33 +1,119 @@
-body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background: #fafafa;
-  color: #222;
+/* ===== Theme ===== */
+:root{
+  --brand: #4f46e5;        /* Indigo 600 */
+  --brand-contrast: #ffffff;
+  --text: #1f2937;         /* Gray-800 */
+  --muted: #6b7280;        /* Gray-500 */
+  --bg: #f8fafc;           /* Gray-50 */
+  --card: #ffffff;
+  --ring: rgba(79,70,229,.18);
+  --shadow: 0 10px 25px rgba(0,0,0,.06);
 }
 
-header {
-  text-align: center;
-  padding: 3rem 1rem 1rem;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
 }
 
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #0077cc;
+/* ===== Layout helpers ===== */
+.container{
+  width:min(1100px, 92vw);
+  margin-inline:auto;
+}
+.section{padding:3.5rem 0}
+.section--alt{background:#fff}
+.section__head{
+  display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
+  margin-bottom:1.25rem;
+}
+.section__head h2{margin:0; font-size:1.6rem}
+
+/* ===== Hero (top banner) ===== */
+.hero{
+  background:var(--brand);
+  color:var(--brand-contrast);
+  padding:4.5rem 0 3.5rem;
+  position:relative;
+}
+.hero__inner{display:grid; align-items:center}
+.hero__title{
+  font-size:clamp(2rem, 4vw + 1rem, 3rem);
+  line-height:1.1; margin:0 0 .5rem;
+}
+.hero__tagline{
+  margin:.25rem 0; opacity:.95; font-weight:600;
+}
+.hero__sub{margin:.5rem 0 1rem; opacity:.9}
+.hero__actions{display:flex; gap:.75rem; flex-wrap:wrap}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-block; border:2px solid transparent; border-radius:12px;
+  padding:.6rem 1rem; font-weight:600; text-decoration:none; transition:.2s ease;
+}
+.btn--primary{ background:var(--brand); color:#fff; border-color:var(--brand-contrast); }
+.hero .btn--primary{ background:#fff; color:var(--brand); border-color:#fff; }
+.btn--primary:hover{ filter:brightness(0.95); }
+.btn--ghost{
+  background:transparent; color:var(--brand-contrast); border-color:rgba(255,255,255,.6);
+}
+.btn--ghost:hover{ background:rgba(255,255,255,.12); }
+.btn--sm{ padding:.45rem .75rem; font-size:.95rem; border-radius:10px; }
+
+/* ===== Pills / highlights (use same brand color family) ===== */
+.pill{
+  display:inline-block; padding:.2rem .55rem; font-size:.85rem; border-radius:999px;
+  color:var(--brand); background:rgba(79,70,229,.10); border:1px solid rgba(79,70,229,.25);
 }
 
-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+/* ===== Grid & Cards ===== */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:1rem;
+}
+.card{
+  background:var(--card); border:1px solid rgba(0,0,0,.06);
+  border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column;
+}
+.card__body{ padding:1rem 1rem .5rem; }
+.card__title{ margin:.2rem 0 .4rem; font-size:1.15rem; }
+.card__desc{ margin:.25rem 0 .75rem; color:var(--muted); }
+.card__tech{
+  list-style:none; display:flex; flex-wrap:wrap; gap:.4rem; padding:0; margin:0 0 .75rem;
+}
+.card__tech li{
+  font-size:.83rem; padding:.18rem .5rem; border-radius:999px;
+  background:rgba(79,70,229,.08); color:var(--brand); border:1px solid rgba(79,70,229,.22);
+}
+.card__actions{
+  display:flex; gap:.5rem; padding:0 1rem 1rem; margin-top:auto;
 }
 
-.project {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* ===== Footer (bottom banner) ===== */
+.footer{
+  background:var(--brand); color:var(--brand-contrast);
+  margin-top:2.5rem; padding:2.75rem 0 2.25rem;
+}
+.footer__inner{ display:flex; flex-direction:column; gap:.5rem; align-items:flex-start; }
+.footer__title{ margin:0; font-size:1.35rem }
+.footer__sub{ margin:.2rem 0 .8rem; opacity:.9 }
+.footer__links a{
+  color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35);
+}
+.footer__links a:hover{ border-bottom-color:#fff }
+
+/* ===== Focus & misc ===== */
+a:focus, .btn:focus{
+  outline:3px solid var(--ring); outline-offset:2px;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (min-width: 768px){
+  .hero__inner{grid-template-columns: 1fr}
+  .footer__inner{flex-direction:row; justify-content:space-between; align-items:center}
 }
